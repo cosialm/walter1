@@ -13,7 +13,9 @@ password = "Create1#"
 # --- PLAYWRIGHT MANAGED USER DATA DIRECTORY ---
 # Playwright will create and manage this directory for persistent sessions.
 # This is NOT your Google Chrome profile directory.
-USER_DATA_DIR = os.path.expanduser("~/playwright_user_data") # For cross-platform compatibility
+# USER_DATA_DIR = os.path.expanduser("~/playwright_user_data") # For cross-platform compatibility
+# Path to the Chrome user data directory (parent of "Profile 79")
+USER_DATA_DIR = r"C:\Users\Administrator\AppData\Local\Google\Chrome\User Data"
 # ----------------------------------------
 
 def main():
@@ -32,7 +34,8 @@ def main():
                 '--disable-dev-shm-usage',
                 '--disable-gpu',
                 '--window-size=1920,1080', # Set a consistent window size
-                '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' # Realistic User-Agent
+                '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', # Realistic User-Agent
+                '--profile-directory=Profile 79' # Specify the Chrome profile directory
             ]
 
             browser = p.chromium.launch_persistent_context(
