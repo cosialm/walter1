@@ -115,11 +115,11 @@ def main():
 
                     # Check for login error messages
                     possible_error_selectors = [
-                        "[role=\'alert\']",
-                        "div[class*=\'error\']",
-                        "p[class*=\'error\']",
-                        "div[data-testid*=\'error\']",
-                        "span[class*=\'error\']",
+                        "[role='alert']",
+                        "div[class*='error']",
+                        "p[class*='error']",
+                        "div[data-testid*='error']",
+                        "span[class*='error']",
                         "text=Invalid credentials", # Specific error message text
                         "text=incorrect email or password" # Another specific error message text
                     ]
