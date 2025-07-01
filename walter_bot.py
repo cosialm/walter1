@@ -63,9 +63,9 @@ def main():
                 if "cloudflare" in page.url.lower() or "just a moment" in page.content().lower():
                     print("Still stuck on Cloudflare page after waiting. Attempting to click any visible button.")
                     # Corrected way to combine locators with .or()
-                    verify_button = page.locator("button:has-text(\'Verify you are human\')").or(
-                                    page.locator("button:has-text(\'I am not a robot\')")).or(
-                                    page.locator("input[type=\'button\'][value=\'Verify\']"))
+                    verify_button = page.locator("button:has-text('Verify you are human')").or(
+                                    page.locator("button:has-text('I am not a robot')")).or(
+                                    page.locator("input[type='button'][value='Verify']"))
                     try:
                         if verify_button.is_visible():
                             print("Found a Cloudflare verification button. Clicking it...")
@@ -144,7 +144,7 @@ def main():
 
             # 2. Navigate to the humanizer page
             print("Navigating to Humanizer page...")
-            page.locator("a[href=\\'/en/humanizer\\']").click()
+            page.locator("a[href='/en/humanizer']").click()
 
             humanizer_url_pattern = "https://app.walterwrites.ai/en/humanizer"
             print(f"Waiting for navigation to Humanizer URL pattern: {humanizer_url_pattern}" )
